@@ -1,0 +1,16 @@
+(defpackage :clayworks.sysdef
+  (:use :common-lisp :asdf))
+
+(in-package :clayworks.sysdef)
+
+(defsystem :clayworks
+  :name "clayworks web development stack"
+  :author "Aad Versteden <madnificent@gmail.com>"
+  :version "0"
+  :maintainer "Aad Versteden <madnificent@gmail.com>"
+  :licence "BSD"
+  :description "Full web stack, ready to develop applications in"
+  :depends-on (:claymore
+	       :rofl
+	       :database-versioning)
+  :components ((:file "packages")))
