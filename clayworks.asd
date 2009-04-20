@@ -12,5 +12,5 @@
   :description "Full web stack, ready to develop applications in"
   :depends-on (:claymore
 	       :rofl
-	       :database-versioning)
+	       :database-migrations)
   :components ((:file "packages")))
