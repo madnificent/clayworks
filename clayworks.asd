@@ -9,7 +9,7 @@
   :version "0"
   :maintainer "Aad Versteden <madnificent@gmail.com>"
   :licence "BSD"
-  :description "Full web stack, ready to develop applications in"
+  :description "Full stack web development framework, ready to develop applications in."
   :depends-on (:claymore
 	       :rofl
 	       :database-migrations)

@@ -1,0 +1,5 @@
+h1. ClayWorks
+
+ClayWorks is a full stack webdevelopment framework built on top of claymore and some extra external utilities.
+
+As ClayWorks itself doesn't contain much code, it is mostly interesting to look at the projects it links to.  This is a handy repository to use in clbuild.
