@@ -11,6 +11,8 @@
   :licence "BSD"
   :description "Full stack web development framework, ready to develop applications in."
   :depends-on (:claymore
+	       :flow
 	       :rofl
 	       :database-migrations)
-  :components ((:file "packages")))
+  :components ((:file "packages")
+	       (:file "mvc" :depends-on "packages"))
