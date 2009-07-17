@@ -12,7 +12,7 @@
   "This section will handle the parsing of the variables, so they can be used in the next stage of the flow.
 Splitting the fetching of the variables in a separate part of the code, makes the code easier ot reuse in cases when the parameters might be fetched otherwise."
   `(defflow *mvcp* 'view ',name ,(or args (list 'arg))
-     ,@body)))
+     ,@body))
 
 (defmacro controller (name args &body body)
   "Defines a new conttroller, which will handle the changes enflicted upon the model.
