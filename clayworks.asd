@@ -15,4 +15,5 @@
 	       :fridge
 	       :database-migrations)
   :components ((:file "packages")
-	       (:file "mvc" :depends-on ("packages"))))
+	       (:file "mvc" :depends-on ("packages"))
+	       (:file "helpers" :depends-on ("packages"))))
