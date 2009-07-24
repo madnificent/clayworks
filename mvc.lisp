@@ -2,6 +2,10 @@
 
 (defparameter *mvcp* (make-instance 'flow :order '(parameters controller director view)))
 
+(setf claymore.routing:*page-handler-function* (lambda (page) 
+						 (fridge:quickclear)
+						 (flow:do-flow *mvcp* page nil)))
+
 ;;;; This system allows for an extended mvc system to be used within your code.
 ;;;;
 ;;;; The splits enforce high cohesion within and low coupling between the separate components.  This allows you to easily reuse the compontents and grasp what they do and how they should do it.
