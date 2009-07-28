@@ -3,8 +3,8 @@
 (defparameter *mvcp* (make-instance 'flow :order '(parameters controller director view)))
 
 (setf claymore.routing:*page-handler-function* (lambda (page) 
-						 (fridge:quickclear)
-						 (flow:do-flow *mvcp* page nil)))
+						 (fridge:with-quickstore
+						   (flow:do-flow *mvcp* page nil))))
 
 ;;;; This system allows for an extended mvc system to be used within your code.
 ;;;;
@@ -35,9 +35,6 @@ The decisions as to which view should be shown (and what parameters to give to i
 How the user interface is shown should be made completely independent of how the system acts.  By creating the views separately, a simple and clean portion of the code can be used."
   `(defflow *mvcp* 'view ',name ,(or args (list 'arg))
      ,@body))
-
-
-
 
 ;; (defparameter *mvcp* (make-instance 'flow :order '(controller director view)))
 
