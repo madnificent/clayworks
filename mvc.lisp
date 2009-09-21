@@ -3,8 +3,9 @@
 (defparameter *mvcp* (make-instance 'flow :order '(parameters controller director view)))
 
 (setf claymore.routing:*page-handler-function* (lambda (page) 
-						 (fridge:with-quickstore
-						   (flow:do-flow *mvcp* page nil))))
+						 (postmodern:with-transaction ()
+						     (fridge:with-quickstore
+						       (flow:do-flow *mvcp* page nil)))))
 
 ;;;; This system allows for an extended mvc system to be used within your code.
 ;;;;
