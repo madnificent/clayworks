@@ -3,8 +3,7 @@
 (defparameter *mvcp* (make-instance 'flow :order '(parameters controller director view)))
 
 (setf claymore.routing:*page-handler-function* (lambda (page) 
-						 (fridge:with-quickstore
-						   (flow:do-flow *mvcp* page nil))))
+						 (flow:do-flow *mvcp* page nil)))
 
 ;;;; This system allows for an extended mvc system to be used within your code.
 ;;;;
@@ -23,6 +22,12 @@ Splitting the fetching of the variables in a separate part of the code, makes th
 Any state you alter, should be done in here.  This will allow you to quickly find where the changes happen, and thus allows you to find bugs easier."
   `(defflow *mvcp* 'controller ',name ,(or args (list 'arg))
      ,@body))
+
+(defmacro defcontroller-t (name args &body body)
+  "Does the same as defcontroller, but executes the body within a bknr transaction"
+  `(defcontroller ,name ,args
+     (bknr.datastore:with-transaction ()
+       ,@body)))
 
 (defmacro defdirector (name args &body body)
   "Defines a new director.  This is the part that decides what view will be shown.  For this, it uses the variables from the previous stage (controller).

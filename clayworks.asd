@@ -12,8 +12,9 @@
   :description "Full stack web development framework, ready to develop applications in."
   :depends-on (:claymore
 	       :flow
-	       :fridge
-	       :database-migrations)
+	       :bknr.datastore
+	       :cl-css
+	       :parenscript)
   :components ((:file "packages")
 	       (:file "mvc" :depends-on ("packages"))
 	       (:file "helpers" :depends-on ("packages"))))
